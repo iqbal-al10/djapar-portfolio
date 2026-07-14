@@ -1,0 +1,23 @@
+{
+  "name": "D.japar",
+  "profession": "Professional DJ & Live Saxophonist",
+  "tagline": "Every Beat Has A Soul, Every Melody Has A Story.",
+  "taglineAlt": "Let The Beats Drop And The Sax Talk.",
+  "description": "D.japar adalah seorang Professional DJ sekaligus pemain Saxophone yang menghadirkan konsep Hybrid Performance. Ia tidak hanya memainkan musik elektronik, tetapi juga memainkan saxophone secara live sehingga menciptakan pengalaman musikal yang eksklusif, emosional dan tidak terlupakan.",
+  "location": "Surabaya, East Java, Indonesia",
+  "stats": [
+    { "value": 100, "label": "Live Performance", "suffix": "+" },
+    { "value": 20, "label": "Premium Venue", "suffix": "+" },
+    { "value": 6, "label": "Years Experience", "suffix": "+" },
+    { "value": 1000, "label": "Happy Audience", "suffix": "+" }
+  ],
+  "specializations": [
+    "Live DJ",
+    "Live Saxophone",
+    "Hybrid Performance",
+    "Music Directing",
+    "Crowd Reading",
+    "Open Format DJ",
+    "Premium Entertainment"
+  ]
+}

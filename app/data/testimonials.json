@@ -1,0 +1,28 @@
+{
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Hotel Manager",
+      "role": "Aston Hotel",
+      "avatar": "/assets/images/avatar-1.jpg",
+      "rating": 5,
+      "text": "D.japar brought an incredible energy to our hotel events. His hybrid DJ and saxophone performance is truly unique."
+    },
+    {
+      "id": 2,
+      "name": "Event Organizer",
+      "role": "Hellens Night Mart",
+      "avatar": "/assets/images/avatar-2.jpg",
+      "rating": 5,
+      "text": "Professional, talented, and knows exactly how to read the crowd. Highly recommended for any event."
+    },
+    {
+      "id": 3,
+      "name": "Club Owner",
+      "role": "Cat's Pajamas",
+      "avatar": "/assets/images/avatar-3.jpg",
+      "rating": 5,
+      "text": "One of the best performers we've had. His sets are always fresh and the crowd loves him."
+    }
+  ]
+}

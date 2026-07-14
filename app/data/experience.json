@@ -1,0 +1,46 @@
+{
+  "experiences": [
+    {
+      "period": "2020–2024",
+      "venue": "Hotel Ayola",
+      "location": "Surabaya",
+      "role": "Resident DJ",
+      "description": "Resident DJ performing weekly at one of Surabaya's premier hotels"
+    },
+    {
+      "period": "2023",
+      "venue": "Cat's Pajamas",
+      "location": "Surabaya",
+      "role": "Guest DJ",
+      "description": "Guest performance at Surabaya's iconic nightlife venue"
+    },
+    {
+      "period": "2024",
+      "venue": "Hellens Night Mart",
+      "location": "Surabaya",
+      "role": "Headline DJ",
+      "description": "Headline performance at Surabaya's premier night market event"
+    },
+    {
+      "period": "2024–2026",
+      "venue": "Aston Hotel & Conference Center",
+      "location": "Surabaya",
+      "role": "Resident DJ",
+      "description": "Resident DJ for luxury hotel events and corporate functions"
+    },
+    {
+      "period": "2026",
+      "venue": "BV Luxury & KTV",
+      "location": "Surabaya",
+      "role": "Exclusive DJ",
+      "description": "Exclusive DJ for high-end luxury lounge and KTV venue"
+    },
+    {
+      "period": "2026",
+      "venue": "Gedung Astoria",
+      "location": "Surabaya",
+      "role": "Special Performance",
+      "description": "Special performance at Surabaya's prestigious Astoria building"
+    }
+  ]
+}

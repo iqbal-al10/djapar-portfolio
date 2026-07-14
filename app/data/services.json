@@ -1,0 +1,14 @@
+{
+  "services": [
+    { "id": 1, "title": "Wedding", "icon": "💍", "description": "Create magical moments with live saxophone and DJ performance" },
+    { "id": 2, "title": "Corporate Event", "icon": "🏢", "description": "Professional entertainment for corporate gatherings" },
+    { "id": 3, "title": "Private Party", "icon": "🎉", "description": "Exclusive performances for private celebrations" },
+    { "id": 4, "title": "Luxury Lounge", "icon": "✨", "description": "Sophisticated ambiance for premium lounges" },
+    { "id": 5, "title": "Night Club", "icon": "🎵", "description": "High-energy club performances that keep crowds moving" },
+    { "id": 6, "title": "Hotel Entertainment", "icon": "🏨", "description": "Resident DJ services for hotels and resorts" },
+    { "id": 7, "title": "Music Festival", "icon": "🎪", "description": "Main stage performances for festivals" },
+    { "id": 8, "title": "VIP Event", "icon": "👑", "description": "Exclusive performances for VIP clientele" },
+    { "id": 9, "title": "DJ + Live Saxophone", "icon": "🎷", "description": "Hybrid performance combining DJ skills with live saxophone" },
+    { "id": 10, "title": "Music Directing", "icon": "🎼", "description": "Professional music direction and curation" }
+  ]
+}
