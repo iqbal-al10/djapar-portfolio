@@ -51,6 +51,7 @@ export default function LoadingScreen() {
               className="object-contain"
               sizes="(max-width: 768px) 160px, 224px"
               priority
+              unoptimized
             />
           </div>
           <div className="absolute -inset-8 -z-10 opacity-20 blur-3xl bg-[#7B2CFF] rounded-full animate-pulse" />
