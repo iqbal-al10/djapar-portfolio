@@ -238,7 +238,7 @@ export default function Music() {
         >
           <span className="text-[#7B2CFF] font-semibold text-sm tracking-widest uppercase">Music</span>
           <h2 className="text-4xl md:text-5xl font-heading mt-2">
-            Latest <span className="bg-gradient-to-r from-[#7B2CFF] via-[#9D4DFF] to-[#A855F7] bg-clip-text text-transparent">Tracks</span>
+            Latest <span className="bg-gradient-to-r from-[#7B2CFF] via-[#9D4DFF] to-[#A855F7] bg-clip-text text-transparent">Trackssss</span>
           </h2>
         </motion.div>
 
