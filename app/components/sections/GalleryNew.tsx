@@ -70,8 +70,18 @@ export default function GalleryNew() {
                 className={`relative rounded-2xl overflow-hidden bg-white/5 backdrop-blur-lg border border-white/10 group cursor-pointer ${
                   item.tall ? 'md:row-span-2' : ''
                 }`}
-                style={{ height: item.tall ? '400px' : '190px' }}
+                style={{ 
+                  height: '190px',
+                  ...(item.tall && { height: '190px' }) // Di mobile semua sama
+                }}
               >
+                <style jsx>{`
+                  @media (min-width: 768px) {
+                    .md\\:row-span-2 {
+                      height: 400px !important;
+                    }
+                  }
+                `}</style>
                 <img
                   src={item.src}
                   alt={item.title}
