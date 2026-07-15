@@ -12,7 +12,10 @@ const testimonials = [
     name: 'Hotel Manager',
     role: 'Aston Hotel',
     rating: 5,
-    text: 'D.japar brought an incredible energy to our hotel events. His hybrid DJ and saxophone performance is truly unique and memorable.',
+    text: {
+      en: 'D.japar brought an incredible energy to our hotel events. His hybrid DJ and saxophone performance is truly unique and memorable.',
+      id: 'D.japar membawa energi luar biasa di acara hotel kami. Performa hybrid DJ dan saxophone-nya benar-benar unik dan berkesan.'
+    },
     avatar: '/assets/images/avatar/1.jpg'
   },
   {
@@ -20,7 +23,10 @@ const testimonials = [
     name: 'Event Organizer',
     role: 'Hellens Night Mart',
     rating: 5,
-    text: 'Professional, talented, and knows exactly how to read the crowd. Highly recommended for any event.',
+    text: {
+      en: 'Professional, talented, and knows exactly how to read the crowd. Highly recommended for any event.',
+      id: 'Profesional, berbakat, dan tahu persis cara membaca audiens. Sangat direkomendasikan untuk acara apapun.'
+    },
     avatar: '/assets/images/avatar/2.jpg'
   },
   {
@@ -28,7 +34,10 @@ const testimonials = [
     name: 'Club Owner',
     role: "Cat's Pajamas Surabaya",
     rating: 5,
-    text: 'One of the best performers we\'ve had. His sets are always fresh and the crowd absolutely loves him.',
+    text: {
+      en: 'One of the best performers we\'ve had. His sets are always fresh and the crowd absolutely loves him.',
+      id: 'Salah satu performer terbaik yang pernah kami miliki. Set-nya selalu segar dan penonton sangat menyukainya.'
+    },
     avatar: '/assets/images/avatar/3.jpg'
   },
   {
@@ -36,7 +45,10 @@ const testimonials = [
     name: 'Wedding Planner',
     role: 'Elite Events',
     rating: 5,
-    text: 'The saxophone performance at the wedding was magical! Our clients were speechless. Truly a premium experience.',
+    text: {
+      en: 'The saxophone performance at the wedding was magical! Our clients were speechless. Truly a premium experience.',
+      id: 'Performa saxophone di pernikahan sungguh ajaib! Klien kami terdiam takjub. Benar-benar pengalaman premium.'
+    },
     avatar: '/assets/images/avatar/4.jpg'
   },
   {
@@ -44,7 +56,10 @@ const testimonials = [
     name: 'Corporate Client',
     role: 'PT. Multinational Corp',
     rating: 5,
-    text: 'D.japar delivered an outstanding performance at our annual gala. The blend of electronic and live saxophone was perfect.',
+    text: {
+      en: 'D.japar delivered an outstanding performance at our annual gala. The blend of electronic and live saxophone was perfect.',
+      id: 'D.japar memberikan penampilan luar biasa di gala tahunan kami. Perpaduan elektronik dan saxophone langsung sangat sempurna.'
+    },
     avatar: '/assets/images/avatar/5.jpg'
   },
   {
@@ -52,7 +67,10 @@ const testimonials = [
     name: 'Lounge Manager',
     role: 'BV Luxury & KTV',
     rating: 5,
-    text: 'Our VIP guests were amazed by the live saxophone performance. D.japar is now our go-to artist for exclusive events.',
+    text: {
+      en: 'Our VIP guests were amazed by the live saxophone performance. D.japar is now our go-to artist for exclusive events.',
+      id: 'Tamu VIP kami terpukau dengan performa saxophone langsung. D.japar sekarang menjadi artis andalan kami untuk acara eksklusif.'
+    },
     avatar: '/assets/images/avatar/6.jpg'
   },
   {
@@ -60,7 +78,10 @@ const testimonials = [
     name: 'Festival Director',
     role: 'Music Fest 2024',
     rating: 5,
-    text: 'His performance on the main stage was electrifying! The crowd went wild. A true festival headliner.',
+    text: {
+      en: 'His performance on the main stage was electrifying! The crowd went wild. A true festival headliner.',
+      id: 'Penampilannya di panggung utama sangat membangkitkan semangat! Penonton menjadi hiruk-pikuk. Seorang headliner festival sejati.'
+    },
     avatar: '/assets/images/avatar/7.jpg'
   },
   {
@@ -68,7 +89,10 @@ const testimonials = [
     name: 'Private Client',
     role: 'VIP Event',
     rating: 5,
-    text: 'We hired D.japar for our private anniversary party and it was the best decision. The live saxophone added a special touch.',
+    text: {
+      en: 'We hired D.japar for our private anniversary party and it was the best decision. The live saxophone added a special touch.',
+      id: 'Kami menyewa D.japar untuk pesta ulang tahun pribadi dan itu adalah keputusan terbaik. Saxophone langsung menambahkan sentuhan istimewa.'
+    },
     avatar: '/assets/images/avatar/8.jpg'
   },
   {
@@ -76,7 +100,10 @@ const testimonials = [
     name: 'Music Director',
     role: 'Radio Surabaya',
     rating: 5,
-    text: 'D.japar is one of the most talented DJs and saxophonists in Surabaya. His musicality and stage presence are exceptional.',
+    text: {
+      en: 'D.japar is one of the most talented DJs and saxophonists in Surabaya. His musicality and stage presence are exceptional.',
+      id: 'D.japar adalah salah satu DJ dan pemain saxophone paling berbakat di Surabaya. Musikalitas dan kehadiran panggungnya luar biasa.'
+    },
     avatar: '/assets/images/avatar/9.jpg'
   },
 ]
@@ -102,7 +129,7 @@ export default function Testimonials() {
     rootMargin: '-100px',
   })
   const containerRef = useRef<HTMLDivElement>(null)
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
 
   const itemsPerPage = 3
   const totalPages = Math.ceil(testimonials.length / itemsPerPage)
@@ -186,7 +213,7 @@ export default function Testimonials() {
                   </div>
                   
                   <p className="text-gray-300 text-sm leading-relaxed mb-4">
-                    &quot;{t(testimonial.text, testimonial.text)}&quot;
+                    &quot;{language === 'id' ? testimonial.text.id : testimonial.text.en}&quot;
                   </p>
                   
                   <div className="flex items-center gap-3">

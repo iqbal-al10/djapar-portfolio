@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
@@ -23,6 +23,16 @@ export default function GalleryNew() {
   })
 
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   const handlePrev = () => {
     if (selectedIndex !== null && selectedIndex > 0) {
@@ -68,20 +78,12 @@ export default function GalleryNew() {
                 transition={{ delay: index * 0.1, duration: 0.6 }}
                 onClick={() => setSelectedIndex(index)}
                 className={`relative rounded-2xl overflow-hidden bg-white/5 backdrop-blur-lg border border-white/10 group cursor-pointer ${
-                  item.tall ? 'md:row-span-2' : ''
+                  item.tall && !isMobile ? 'md:row-span-2' : ''
                 }`}
                 style={{ 
-                  height: '190px',
-                  ...(item.tall && { height: '190px' }) // Di mobile semua sama
+                  height: isMobile ? '190px' : (item.tall ? '400px' : '190px')
                 }}
               >
-                <style jsx>{`
-                  @media (min-width: 768px) {
-                    .md\\:row-span-2 {
-                      height: 400px !important;
-                    }
-                  }
-                `}</style>
                 <img
                   src={item.src}
                   alt={item.title}
