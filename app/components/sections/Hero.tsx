@@ -8,6 +8,13 @@ import { useLanguage } from '../../context/LanguageContext'
 export default function Hero() {
   const { t } = useLanguage()
 
+  const scrollToBottom = () => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: 'smooth'
+    })
+  }
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#050505]">
       {/* Background Effect */}
@@ -71,84 +78,70 @@ export default function Hero() {
         </motion.p>
       </div>
 
-      {/* Scroll Indicator - Aesthetic Version */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+      {/* Scroll Indicator */}
+      <motion.button
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, delay: 2 }}
-        className="absolute bottom-8 md:bottom-12 left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center gap-3 cursor-pointer group"
-        onClick={() => {
-          const aboutSection = document.getElementById('about')
-          if (aboutSection) {
-            aboutSection.scrollIntoView({ behavior: 'smooth' })
-          }
-        }}
+        className="absolute bottom-8 md:bottom-12 left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center gap-3 cursor-pointer group bg-transparent border-none outline-none"
+        onClick={scrollToBottom}
+        aria-label="Scroll to bottom"
       >
-        {/* Glow Effect Behind */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#7B2CFF]/20 via-transparent to-transparent blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        
-        {/* Animated Line */}
-        <motion.div
-          animate={{
-            scaleX: [0, 1, 0],
-            opacity: [0, 1, 0]
-          }}
-          transition={{
-            duration: 2.5,
-            repeat: Infinity,
-            repeatType: 'loop'
-          }}
-          className="w-8 h-[1px] bg-gradient-to-r from-transparent via-[#7B2CFF] to-transparent"
-        />
-
-        {/* Text dengan efek */}
-        <div className="relative">
-          <motion.span
-            animate={{
-              opacity: [0.4, 1, 0.4],
-              y: [0, -2, 0]
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              repeatType: 'loop'
-            }}
-            className="text-[10px] md:text-xs font-light tracking-[0.3em] uppercase text-white/60 group-hover:text-white/80 transition-colors duration-500"
-          >
-            {t('Scroll to explore', 'Gulir untuk menjelajah')}
-          </motion.span>
+        {/* Glassmorphism - HANYA UNTUK TEKS */}
+        <div className="relative px-6 py-3 rounded-full backdrop-blur-xl bg-gradient-to-r from-[#7B2CFF]/20 via-[#7B2CFF]/70 to-[#A855F7]/10 border border-white/10 hover:border-[#7B2CFF]/30 shadow-[0_0_20px_rgba(123,44,255,0.05)] hover:shadow-[0_0_40px_rgba(123,44,255,0.15)] transition-all duration-500">
           
-          {/* Decorative Dots */}
-          <motion.div
-            animate={{
-              opacity: [0, 1, 0],
-              scale: [0.8, 1.2, 0.8]
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              repeatType: 'loop',
-              delay: 0.5
-            }}
-            className="absolute -left-4 top-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-[#7B2CFF]"
-          />
-          <motion.div
-            animate={{
-              opacity: [0, 1, 0],
-              scale: [0.8, 1.2, 0.8]
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              repeatType: 'loop',
-              delay: 1
-            }}
-            className="absolute -right-4 top-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-[#7B2CFF]"
-          />
+          {/* Inner Glow */}
+          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#7B2CFF]/50 via-transparent to-[#A855F7]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          
+          {/* Text dengan efek */}
+          <div className="relative">
+            <motion.span
+              animate={{
+                opacity: [0.4, 1, 0.4],
+                y: [0, -2, 0]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                repeatType: 'loop'
+              }}
+              className="text-[10px] md:text-xs font-light tracking-[0.3em] uppercase text-white/80 group-hover:text-white transition-colors duration-500 relative z-10"
+            >
+              {t('Scroll to explore', 'Gulir untuk menjelajah')}
+            </motion.span>
+            
+            {/* Decorative Dots */}
+            <motion.div
+              animate={{
+                opacity: [0, 1, 0],
+                scale: [0.8, 1.2, 0.8]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                repeatType: 'loop',
+                delay: 0.5
+              }}
+              className="absolute -left-4 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-[#7B2CFF] shadow-[0_0_10px_rgba(123,44,255,0.5)]"
+            />
+            <motion.div
+              animate={{
+                opacity: [0, 1, 0],
+                scale: [0.8, 1.2, 0.8]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                repeatType: 'loop',
+                delay: 1
+              }}
+              className="absolute -right-4 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-[#A855F7] shadow-[0_0_10px_rgba(168,85,247,0.5)]"
+            />
+          </div>
         </div>
 
-        {/* 3 Panah dengan Animasi Bounce & Glow */}
-        <div className="flex flex-col items-center gap-0.5 relative">
+        {/* 3 Panah dengan Animasi Bounce & Glow - TERPISAH DI BAWAH */}
+        <div className="flex flex-col items-center gap-0.5 relative -mt-1">
           {/* Glow untuk panah */}
           <div className="absolute inset-0 -z-10 bg-[#7B2CFF]/10 blur-xl rounded-full scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           
@@ -197,22 +190,7 @@ export default function Hero() {
             <ChevronDown className="w-4 h-4 md:w-5 md:h-5 text-[#A855F7] drop-shadow-[0_0_8px_rgba(168,85,247,0.3)] group-hover:drop-shadow-[0_0_15px_rgba(168,85,247,0.6)] transition-all duration-300" />
           </motion.div>
         </div>
-
-        {/* Decorative Line Under */}
-        <motion.div
-          animate={{
-            scaleX: [0, 1, 0],
-            opacity: [0, 1, 0]
-          }}
-          transition={{
-            duration: 2.5,
-            repeat: Infinity,
-            repeatType: 'loop',
-            delay: 0.5
-          }}
-          className="w-8 h-[1px] bg-gradient-to-r from-transparent via-[#A855F7] to-transparent"
-        />
-      </motion.div>
+      </motion.button>
     </section>
   )
 }

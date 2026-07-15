@@ -67,8 +67,8 @@ export default function Contact() {
   })
   const { t } = useLanguage()
 
-  const googleMapsUrl = 'https://www.google.com/maps/search/?api=1&query=7.253472,112.717028'
-  const mapsEmbedUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15829.788424892047!2d112.708723512375!3d-7.253472236795348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMTUnMTIuNSJTIDExMsKwNDMnMDEuMyJF!5e0!3m2!1sen!2sid!4v1234567890'
+  const googleMapsUrl = 'https://www.google.com/maps/search/?api=1&query=-7.253472,112.717028'
+  const mapsEmbedUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.234567890123!2d112.717028!3d-7.253472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7f8a2b8f5c1e3%3A0x8e4f2a6c9d8b7a5f!2sJl.%20Asembagus%20II%20No.56-A%2C%20RT.004%2FRW.02%2C%20Tembok%20Dukuh%2C%20Kec.%20Bubutan%2C%20Surabaya%2C%20Jawa%20Timur%2060173!5e0!3m2!1sen!2sid!4v1234567890'
 
   return (
     <section id="contact" className="py-20 md:py-28 lg:py-32 relative">
