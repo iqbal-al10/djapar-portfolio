@@ -46,7 +46,7 @@ export default function LoadingScreen() {
         >
           <div className="relative w-44 h-32 md:w-64 md:h-48">
             <Image
-              src="/assets/images/djapar-logo-hero.png"
+              src="/assets/images/djapar-logo-hero.PNG"
               alt="D.japar Logo"
               fill
               className="object-contain"
