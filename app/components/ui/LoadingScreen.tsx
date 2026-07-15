@@ -8,12 +8,15 @@ export default function LoadingScreen() {
   const [loading, setLoading] = useState(true)
   const [progress, setProgress] = useState(0)
   const [barHeights, setBarHeights] = useState<number[]>([])
-  const [imageError, setImageError] = useState(false)
+  const [imageSrc, setImageSrc] = useState('')
 
   useEffect(() => {
     // Generate random heights sekali di mount
     const heights = Array.from({ length: 12 }, () => 40 + Math.random() * 40)
     setBarHeights(heights)
+
+    // Set image source dengan timestamp untuk bypass cache
+    setImageSrc(`/assets/images/djapar-logo-hero.png?t=${Date.now()}`)
 
     const interval = setInterval(() => {
       setProgress((prev) => {
@@ -45,20 +48,16 @@ export default function LoadingScreen() {
           transition={{ duration: 0.8 }}
         >
           <div className="relative w-44 h-32 md:w-64 md:h-48">
-            <Image
-              src="/assets/images/djapar-logo-hero.png"
-              alt="D.japar Logo"
-              fill
-              className="object-contain"
-              sizes="(max-width: 768px) 160px, 224px"
-              priority
-              unoptimized
-              onError={() => setImageError(true)}
-            />
-            {imageError && (
-              <div className="absolute inset-0 flex items-center justify-center bg-[#050505] text-gray-400 text-sm">
-                Logo
-              </div>
+            {imageSrc && (
+              <Image
+                src={imageSrc}
+                alt="D.japar Logo"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 160px, 224px"
+                priority
+                unoptimized
+              />
             )}
           </div>
           <div className="absolute -inset-8 -z-10 opacity-20 blur-3xl bg-[#7B2CFF] rounded-full animate-pulse" />
