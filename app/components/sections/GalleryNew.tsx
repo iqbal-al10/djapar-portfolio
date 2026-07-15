@@ -8,9 +8,9 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 const galleryItems = [
   { id: 1, src: '/assets/images/gallery/gambar1.jpg', title: 'Saxophone Solo', tall: true },
   { id: 2, src: '/assets/images/gallery/gambar2.jpg', title: 'Mall Event', tall: false },
-  { id: 3, src: '/assets/images/gallery/gambar5.jpg', title: 'Graduation', tall: false },
-  { id: 4, src: '/assets/images/gallery/gambar6.jpg', title: 'Wedding Event', tall: true },
+  { id: 3, src: '/assets/images/gallery/gambar6.jpg', title: 'Wedding Event', tall: true },
   { id: 5, src: '/assets/images/gallery/gambar3.jpg', title: 'Live Performance', tall: true },
+  { id: 4, src: '/assets/images/gallery/gambar5.jpg', title: 'Graduation', tall: false },
   { id: 6, src: '/assets/images/gallery/gambar4.jpg', title: 'Club Night', tall: false },
 ]
 
