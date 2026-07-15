@@ -3,11 +3,14 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
+// Import gambar langsung
+import logoImage from '@/public/assets/images/djapar-logo-hero.png'
 
 export default function LoadingScreen() {
   const [loading, setLoading] = useState(true)
   const [progress, setProgress] = useState(0)
   const [barHeights, setBarHeights] = useState<number[]>([])
+  const [imageError, setImageError] = useState(false)
 
   useEffect(() => {
     // Generate random heights sekali di mount
@@ -45,13 +48,14 @@ export default function LoadingScreen() {
         >
           <div className="relative w-44 h-32 md:w-64 md:h-48">
             <Image
-              src="/assets/images/djapar-logo-hero.png"
+              src={imageError ? '/assets/images/djapar-logo-hero.png' : logoImage}
               alt="D.japar Logo"
               fill
               className="object-contain"
               sizes="(max-width: 768px) 160px, 224px"
               priority
               unoptimized
+              onError={() => setImageError(true)}
             />
           </div>
           <div className="absolute -inset-8 -z-10 opacity-20 blur-3xl bg-[#7B2CFF] rounded-full animate-pulse" />
