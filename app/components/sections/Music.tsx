@@ -9,7 +9,7 @@ import Image from 'next/image'
 const tracks = [
   {
     id: 1,
-    title: 'Djapar - MixTape Open',
+    title: 'Djapar - MixTape Open Format',
     subtitle: 'Djapar.inst',
     duration: '12:16',
     audioUrl: '/assets/music/track-1.mp3',
@@ -25,7 +25,7 @@ const tracks = [
   },
   {
     id: 3,
-    title: 'Djapar - MixTape Jaming',
+    title: 'Djapar - MixTape Bigroom',
     subtitle: 'Djapar.inst',
     duration: '11:39',
     audioUrl: '/assets/music/track-3.mp3',
@@ -45,16 +45,10 @@ export default function Music() {
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const sectionRef = useRef<HTMLElement>(null)
   const { ref, inView } = useInView({
-    triggerOnce: false,
+    triggerOnce: true,
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px',
   })
-
-  // Gunakan ref untuk inView agar tidak berubah-ubah
-  const inViewRef = useRef(inView)
-  useEffect(() => {
-    inViewRef.current = inView
-  }, [inView])
 
   const changeTrack = useCallback((index: number) => {
     if (isPlaying) {
@@ -108,15 +102,16 @@ export default function Music() {
     }, 200)
   }, [currentTrack, changeTrack])
 
-  // KEYBOARD SHORTCUTS - Menggunakan ref untuk cek visibility
+  // KEYBOARD SHORTCUTS - HANYA BERFUNGSI SAAT MUSIC SECTION VISIBLE
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // CEK APAKAH MUSIC SECTION ADA DI VIEWPORT menggunakan ref
+      // CEK APAKAH MUSIC SECTION ADA DI VIEWPORT
       if (!sectionRef.current) return
       
       const rect = sectionRef.current.getBoundingClientRect()
       const isVisible = rect.top < window.innerHeight && rect.bottom > 0
       
+      // JALANKAN SHORTCUT HANYA JIKA SECTION VISIBLE
       if (!isVisible) return
       
       // Cegah konflik dengan input/form
@@ -125,14 +120,19 @@ export default function Music() {
         return
       }
 
+      // SPACE = Play/Pause
       if (e.key === ' ' || e.code === 'Space') {
         e.preventDefault()
         togglePlay()
       }
+      
+      // ARROW RIGHT = Next Track
       if (e.key === 'ArrowRight') {
         e.preventDefault()
         nextTrack()
       }
+      
+      // ARROW LEFT = Previous Track
       if (e.key === 'ArrowLeft') {
         e.preventDefault()
         prevTrack()
@@ -141,7 +141,7 @@ export default function Music() {
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [togglePlay, nextTrack, prevTrack]) // Hapus inView dari dependency
+  }, [togglePlay, nextTrack, prevTrack])
 
   // Inisialisasi audio
   useEffect(() => {
@@ -341,18 +341,28 @@ export default function Music() {
                 </button>
               </div>
 
-              {/* Keyboard Shortcut Info - selalu tampil */}
-              <div className="flex justify-center gap-4 text-xs text-gray-500">
-                <span className="flex items-center gap-1">
-                  <kbd className="px-1.5 py-0.5 bg-white/10 rounded text-[10px]">Space</kbd>
-                  Play/Pause
-                </span>
-                <span className="flex items-center gap-1">
-                  <kbd className="px-1.5 py-0.5 bg-white/10 rounded text-[10px]">←</kbd>
-                  <kbd className="px-1.5 py-0.5 bg-white/10 rounded text-[10px]">→</kbd>
-                  Prev/Next
-                </span>
-              </div>
+              {/* Keyboard Shortcut Info - HANYA TAMPIL JIKA SECTION VISIBLE */}
+              {(() => {
+                if (!sectionRef.current) return null
+                const rect = sectionRef.current.getBoundingClientRect()
+                const isVisible = rect.top < window.innerHeight && rect.bottom > 0
+                
+                if (!isVisible) return null
+                
+                return (
+                  <div className="flex justify-center gap-4 text-xs text-gray-500 animate-fade-in">
+                    <span className="flex items-center gap-1">
+                      <kbd className="px-1.5 py-0.5 bg-white/10 rounded text-[10px]">Space</kbd>
+                      Play/Pause
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <kbd className="px-1.5 py-0.5 bg-white/10 rounded text-[10px]">←</kbd>
+                      <kbd className="px-1.5 py-0.5 bg-white/10 rounded text-[10px]">→</kbd>
+                      Prev/Next
+                    </span>
+                  </div>
+                )
+              })()}
 
               <p className="text-center text-xs text-gray-500">
                 {audioLoaded ? '🎵 Ready to play' : 'Loading...'}

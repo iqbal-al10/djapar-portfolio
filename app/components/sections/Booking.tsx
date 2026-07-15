@@ -23,7 +23,7 @@ export default function Booking() {
     threshold: 0.1,
     rootMargin: '-100px',
   })
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -101,15 +101,69 @@ Sent from D.japar Official Website`
   ]
 
   const whyBookItems = [
-    { icon: Sparkles, text: 'Hybrid DJ + Live Saxophone Performance' },
-    { icon: Users, text: 'Advanced Crowd Reading & Audience Engagement' },
-    { icon: Mic, text: 'Live Improvisation & Interactive Performance' },
-    { icon: Music, text: 'Premium Entertainment Experience' },
-    { icon: Clock, text: 'Flexible Booking & Customizable Packages' },
-    { icon: Shield, text: 'Professional & Reliable Service' },
-    { icon: Award, text: '7+ Years of Professional Experience' },
-    { icon: Gem, text: 'Luxury Stage Presence & Visual Experience' },
-    { icon: Disc, text: 'Open Format DJ - All Genres Welcome' },
+    { 
+      icon: Sparkles, 
+      text: {
+        en: 'Hybrid DJ + Live Saxophone Performance',
+        id: 'Performa Hybrid DJ + Saxophone Langsung'
+      }
+    },
+    { 
+      icon: Users, 
+      text: {
+        en: 'Advanced Crowd Reading & Audience Engagement',
+        id: 'Membaca Kerumunan & Keterlibatan Audiens yang Canggih'
+      }
+    },
+    { 
+      icon: Mic, 
+      text: {
+        en: 'Live Improvisation & Interactive Performance',
+        id: 'Improvisasi Langsung & Performa Interaktif'
+      }
+    },
+    { 
+      icon: Music, 
+      text: {
+        en: 'Premium Entertainment Experience',
+        id: 'Pengalaman Hiburan Premium'
+      }
+    },
+    { 
+      icon: Clock, 
+      text: {
+        en: 'Flexible Booking & Customizable Packages',
+        id: 'Pemesanan Fleksibel & Paket yang Dapat Disesuaikan'
+      }
+    },
+    { 
+      icon: Shield, 
+      text: {
+        en: 'Professional & Reliable Service',
+        id: 'Layanan Profesional & Terpercaya'
+      }
+    },
+    { 
+      icon: Award, 
+      text: {
+        en: '7+ Years of Professional Experience',
+        id: '7+ Tahun Pengalaman Profesional'
+      }
+    },
+    { 
+      icon: Gem, 
+      text: {
+        en: 'Luxury Stage Presence & Visual Experience',
+        id: 'Kehadiran Panggung Mewah & Pengalaman Visual'
+      }
+    },
+    { 
+      icon: Disc, 
+      text: {
+        en: 'Open Format DJ - All Genres Welcome',
+        id: 'DJ Format Terbuka - Semua Genre Musik'
+      }
+    },
   ]
 
   return (
@@ -308,7 +362,7 @@ Sent from D.japar Official Website`
                   </div>
                 </a>
                 <a 
-                  href="mailto:fajarmif110801@gmail.com"
+                  href="mailto:djapar.inst@gmail.com"
                   className="flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-colors"
                 >
                   <div className="w-10 h-10 rounded-full bg-[#EA4335]/20 flex items-center justify-center">
@@ -316,7 +370,7 @@ Sent from D.japar Official Website`
                   </div>
                   <div>
                     <p className="text-sm font-medium">Email</p>
-                    <p className="text-xs text-gray-400">fajarmif110801@gmail.com</p>
+                    <p className="text-xs text-gray-400">djapar.inst@gmail.com</p>
                   </div>
                 </a>
               </div>
@@ -328,7 +382,9 @@ Sent from D.japar Official Website`
                 {whyBookItems.map((item, index) => (
                   <div key={index} className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 transition-colors">
                     <item.icon className="w-4 h-4 text-[#7B2CFF] flex-shrink-0" />
-                    <span className="text-sm text-gray-300">{t(item.text, item.text)}</span>
+                    <span className="text-sm text-gray-300">
+                      {language === 'id' ? item.text.id : item.text.en}
+                    </span>
                   </div>
                 ))}
               </div>

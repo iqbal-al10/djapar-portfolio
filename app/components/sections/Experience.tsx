@@ -10,37 +10,55 @@ const experiences = [
     period: '2020–2024',
     venue: 'Hotel Ayola',
     location: 'Mojokerto',
-    role: 'Mengisi atmosfer di lounge/rooftop hotel, menciptakan getaran (vibe) yang nyaman, akrab, namun tetap mempertahankan esensi hiburan band yang eksklusif bagi para tamu.',
+    role: {
+      en: 'Filling the atmosphere in the hotel lounge/rooftop, creating a comfortable and familiar vibe, while maintaining the exclusive entertainment essence of the band for the guests.',
+      id: 'Mengisi atmosfer di lounge/rooftop hotel, menciptakan getaran (vibe) yang nyaman, akrab, namun tetap mempertahankan esensi hiburan band yang eksklusif bagi para tamu.'
+    }
   },
   {
     period: '2023',
     venue: "Cat's Pajamas",
     location: 'Surabaya',
-    role: 'Sebagai resident di salah satu nightclub legendaris, membawakan performa hybrid yang dinamis dengan transisi beat yang presisi untuk menjaga antusiasme crowd lantai dansa tetap konsisten.',
+    role: {
+      en: 'As a resident at one of the legendary nightclubs, delivering dynamic hybrid performances with precise beat transitions to keep the dance floor crowd consistently enthusiastic.',
+      id: 'Sebagai resident di salah satu nightclub legendaris, membawakan performa hybrid yang dinamis dengan transisi beat yang presisi untuk menjaga antusiasme crowd lantai dansa tetap konsisten.'
+    }
   },
   {
     period: '2024',
     venue: 'Hellens Night Mart',
     location: 'Surabaya',
-    role: 'kolaborasi DJ & Saxophone dipanggung night mart & bar modern yang trendi, berfokus pada crowd reading berenergi tinggi serta menciptakan interaksi panggung yang interaktif lewat lagu-lagu hits.',
+    role: {
+      en: 'DJ & Saxophone collaboration on the stage of a trendy modern night mart & bar, focusing on high-energy crowd reading and creating interactive stage performances with hit songs.',
+      id: 'kolaborasi DJ & Saxophone dipanggung night mart & bar modern yang trendi, berfokus pada crowd reading berenergi tinggi serta menciptakan interaksi panggung yang interaktif lewat lagu-lagu hits.'
+    }
   },
   {
     period: '2024–2026',
     venue: 'Aston Hotel & Conference Center',
     location: 'Surabaya',
-    role: 'Bertindak sebagai band entertainment penyedia untuk acara formal, konferensi, wedding dan exclusive gathering, menghadirkan transisi suasana dari ambience background music yang santai menuju sesi penampilan klimaks yang berkelas.',
+    role: {
+      en: 'Acting as band entertainment provider for formal events, conferences, weddings, and exclusive gatherings, transitioning from relaxed ambience background music to classy climactic performances.',
+      id: 'Bertindak sebagai band entertainment penyedia untuk acara formal, konferensi, wedding dan exclusive gathering, menghadirkan transisi suasana dari ambience background music yang santai menuju sesi penampilan klimaks yang berkelas.'
+    }
   },
   {
     period: '2026',
     venue: 'BV Luxury & KTV',
     location: 'Surabaya',
-    role: 'Menyajikan penampilan eksklusif pada lounge mewah berskala premium, berfokus pada penyelarasan musik yang elegan untuk memanjakan tamu VIP (high-end market).',
+    role: {
+      en: 'Presenting exclusive performances at a premium-scale luxury lounge, focusing on elegant music alignment to pamper VIP guests (high-end market).',
+      id: 'Menyajikan penampilan eksklusif pada lounge mewah berskala premium, berfokus pada penyelarasan musik yang elegan untuk memanjakan tamu VIP (high-end market).'
+    }
   },
   {
     period: '2026',
     venue: 'Gedung Astoria',
     location: 'Mojokerto',
-    role: 'Menjadi penampil utama di Gedung Astoria menegaskan profesionalisme saya sebagai musisi hybrid (DJ & Saxophonist). Dengan kendali penuh atas atmosfer acara, saya memadukan presisi beat elektronik dan soulful saxophone untuk menghadirkan pertunjukan yang tidak hanya mengisi kemegahan ruang, tetapi juga menciptakan koneksi emosional yang mendalam bagi para tamu.',
+    role: {
+      en: 'Being the main performer at Gedung Astoria affirming my professionalism as a hybrid musician (DJ & Saxophonist). With full control over the event atmosphere, I blend electronic beat precision and soulful saxophone to deliver performances that not only fill the grandeur of the space but also create deep emotional connections with the guests.',
+      id: 'Menjadi penampil utama di Gedung Astoria menegaskan profesionalisme saya sebagai musisi hybrid (DJ & Saxophonist). Dengan kendali penuh atas atmosfer acara, saya memadukan presisi beat elektronik dan soulful saxophone untuk menghadirkan pertunjukan yang tidak hanya mengisi kemegahan ruang, tetapi juga menciptakan koneksi emosional yang mendalam bagi para tamu.'
+    }
   },
 ]
 
@@ -51,7 +69,7 @@ export default function Experience() {
     threshold: 0.1,
     rootMargin: '-100px',
   })
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
 
   return (
     <section id="experience" ref={sectionRef} className="py-20 md:py-28 lg:py-32 relative">
@@ -101,7 +119,7 @@ export default function Experience() {
                     {exp.location}
                   </p>
                   <p className={`text-sm text-gray-500 mt-1 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
-                    {exp.role}
+                    {language === 'id' ? exp.role.id : exp.role.en}
                   </p>
                 </div>
               </div>
