@@ -3,8 +3,6 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
-// Import gambar langsung
-import logoImage from '@/public/assets/images/djapar-logo-hero.png'
 
 export default function LoadingScreen() {
   const [loading, setLoading] = useState(true)
@@ -48,7 +46,7 @@ export default function LoadingScreen() {
         >
           <div className="relative w-44 h-32 md:w-64 md:h-48">
             <Image
-              src={imageError ? '/assets/images/djapar-logo-hero.png' : logoImage}
+              src="/assets/images/djapar-logo-hero.png"
               alt="D.japar Logo"
               fill
               className="object-contain"
@@ -57,6 +55,11 @@ export default function LoadingScreen() {
               unoptimized
               onError={() => setImageError(true)}
             />
+            {imageError && (
+              <div className="absolute inset-0 flex items-center justify-center bg-[#050505] text-gray-400 text-sm">
+                Logo
+              </div>
+            )}
           </div>
           <div className="absolute -inset-8 -z-10 opacity-20 blur-3xl bg-[#7B2CFF] rounded-full animate-pulse" />
         </motion.div>
