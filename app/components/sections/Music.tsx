@@ -46,9 +46,15 @@ export default function Music() {
   const sectionRef = useRef<HTMLElement>(null)
   const { ref, inView } = useInView({
     triggerOnce: false,
-    threshold: 0.3,
-    rootMargin: '-100px',
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px',
   })
+
+  // Gunakan ref untuk inView agar tidak berubah-ubah
+  const inViewRef = useRef(inView)
+  useEffect(() => {
+    inViewRef.current = inView
+  }, [inView])
 
   const changeTrack = useCallback((index: number) => {
     if (isPlaying) {
@@ -102,11 +108,16 @@ export default function Music() {
     }, 200)
   }, [currentTrack, changeTrack])
 
-  // KEYBOARD SHORTCUTS - HANYA BERFUNGSI JIKA MUSIC SECTION VISIBLE
+  // KEYBOARD SHORTCUTS - Menggunakan ref untuk cek visibility
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // CEK APAKAH MUSIC SECTION VISIBLE
-      if (!inView) return
+      // CEK APAKAH MUSIC SECTION ADA DI VIEWPORT menggunakan ref
+      if (!sectionRef.current) return
+      
+      const rect = sectionRef.current.getBoundingClientRect()
+      const isVisible = rect.top < window.innerHeight && rect.bottom > 0
+      
+      if (!isVisible) return
       
       // Cegah konflik dengan input/form
       const target = e.target as HTMLElement
@@ -130,7 +141,7 @@ export default function Music() {
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [inView, togglePlay, nextTrack, prevTrack])
+  }, [togglePlay, nextTrack, prevTrack]) // Hapus inView dari dependency
 
   // Inisialisasi audio
   useEffect(() => {
@@ -330,20 +341,18 @@ export default function Music() {
                 </button>
               </div>
 
-              {/* Keyboard Shortcut Info - hanya tampil jika section visible */}
-              {inView && (
-                <div className="flex justify-center gap-4 text-xs text-gray-500 animate-fade-in">
-                  <span className="flex items-center gap-1">
-                    <kbd className="px-1.5 py-0.5 bg-white/10 rounded text-[10px]">Space</kbd>
-                    Play/Pause
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <kbd className="px-1.5 py-0.5 bg-white/10 rounded text-[10px]">←</kbd>
-                    <kbd className="px-1.5 py-0.5 bg-white/10 rounded text-[10px]">→</kbd>
-                    Prev/Next
-                  </span>
-                </div>
-              )}
+              {/* Keyboard Shortcut Info - selalu tampil */}
+              <div className="flex justify-center gap-4 text-xs text-gray-500">
+                <span className="flex items-center gap-1">
+                  <kbd className="px-1.5 py-0.5 bg-white/10 rounded text-[10px]">Space</kbd>
+                  Play/Pause
+                </span>
+                <span className="flex items-center gap-1">
+                  <kbd className="px-1.5 py-0.5 bg-white/10 rounded text-[10px]">←</kbd>
+                  <kbd className="px-1.5 py-0.5 bg-white/10 rounded text-[10px]">→</kbd>
+                  Prev/Next
+                </span>
+              </div>
 
               <p className="text-center text-xs text-gray-500">
                 {audioLoaded ? '🎵 Ready to play' : 'Loading...'}

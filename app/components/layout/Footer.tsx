@@ -21,7 +21,7 @@ const socialLinks = [
   { icon: FaTiktok, href: 'https://tiktok.com/@djapar_inst', label: 'TikTok', color: '#000000' },
   { icon: Youtube, href: 'https://youtube.com/@djapar_id', label: 'YouTube', color: '#FF0000' },
   { icon: FaTelegram, href: 'https://t.me/ini_djapar', label: 'Telegram', color: '#26A5E4' },
-  { icon: Mail, href: 'mailto:fajarmif110801@gmail.com', label: 'Email', color: '#EA4335' },
+  { icon: Mail, href: 'mailto:djapar.inst@gmail.com', label: 'Email', color: '#EA4335' },
   { icon: Phone, href: 'https://wa.me/6281515483038', label: 'WhatsApp', color: '#25D366' },
 ]
 
@@ -246,13 +246,13 @@ export default function Footer() {
                   <span>+6281515483038</span>
                 </a>
                 <a
-                  href="mailto:fajarmif110801@gmail.com"
+                  href="mailto:djapar.inst@gmail.com"
                   className="flex items-center gap-3 text-sm text-gray-400 hover:text-white transition-colors duration-300 group"
                 >
                   <div className="w-7 h-7 rounded-full bg-[#EA4335]/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <Mail className="w-3.5 h-3.5 text-[#EA4335]" />
                   </div>
-                  <span>fajarmif110801@gmail.com</span>
+                  <span>djapar.inst@gmail.com</span>
                 </a>
               </div>
             </div>

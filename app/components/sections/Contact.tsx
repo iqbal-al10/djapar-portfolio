@@ -32,8 +32,8 @@ const contacts = [
   { 
     icon: Mail, 
     label: 'Email', 
-    value: 'fajarmif110801@gmail.com', 
-    href: 'mailto:fajarmif110801@gmail.com',
+    value: 'djapar.inst@gmail.com', 
+    href: 'mailto:djapar.inst@gmail.com',
     color: '#EA4335'
   },
   { 
@@ -67,8 +67,8 @@ export default function Contact() {
   })
   const { t } = useLanguage()
 
-  const googleMapsUrl = 'https://www.google.com/maps?q=Jalan+Asem+Bagus+III+No.+38+A,+RT.7/RW.2,+Kelurahan+Tembok+Dukuh,+Bubutan,+Surabaya'
-  const mapsEmbedUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.234567890123!2d112.7356789!3d-7.2678901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMTYnMDQuNSJTIDExMsKwNDQnMDguNSJF!5e0!3m2!1sen!2sid!4v1234567890'
+  const googleMapsUrl = 'https://www.google.com/maps/search/?api=1&query=7.253472,112.717028'
+  const mapsEmbedUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15829.788424892047!2d112.708723512375!3d-7.253472236795348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMTUnMTIuNSJTIDExMsKwNDMnMDEuMyJF!5e0!3m2!1sen!2sid!4v1234567890'
 
   return (
     <section id="contact" className="py-20 md:py-28 lg:py-32 relative">
@@ -183,13 +183,13 @@ export default function Contact() {
                     <div className="flex-1 min-w-0">
                       <h3 className="font-heading text-lg group-hover:text-gradient transition-colors duration-300">{t('📍 Location', '📍 Lokasi')}</h3>
                       <p className="text-gray-400 text-sm mt-0.5 group-hover:text-white transition-colors duration-300">
-                        {t('Jalan Asem Bagus III No. 38 A', 'Jalan Asem Bagus III No. 38 A')}
+                        {t('PPW8+JR6 Tembok Dukuh', 'PPW8+JR6 Tembok Dukuh')}
                       </p>
                       <p className="text-gray-400 text-sm">
-                        {t('RT.7/RW.2, Tembok Dukuh', 'RT.7/RW.2, Tembok Dukuh')}
+                        {t('Surabaya, Jawa Timur', 'Surabaya, Jawa Timur')}
                       </p>
                       <p className="text-gray-400 text-sm">
-                        {t('Bubutan, Surabaya', 'Bubutan, Surabaya')}
+                        {t('7°15\'12.5"S 112°43\'01.3"E', '7°15\'12.5"S 112°43\'01.3"E')}
                       </p>
                       <p className="text-xs text-[#7B2CFF] mt-2 flex items-center gap-1 group-hover:gap-2 transition-all duration-300">
                         <MapPin className="w-3 h-3" />

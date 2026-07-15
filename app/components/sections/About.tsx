@@ -82,8 +82,8 @@ export default function About() {
               className="text-gray-300 text-lg leading-relaxed"
             >
               {t(
-                'D.japar adalah seorang Professional DJ sekaligus pemain Saxophone yang menghadirkan konsep Hybrid Performance. Ia tidak hanya memainkan musik elektronik, tetapi juga memainkan saxophone secara live sehingga menciptakan pengalaman musikal yang eksklusif, emosional dan tidak terlupakan.',
-                'D.japar is a Professional DJ and Saxophonist who presents a Hybrid Performance concept. He not only plays electronic music but also performs live saxophone, creating an exclusive, emotional, and unforgettable musical experience.'
+                'D.japar is a Professional DJ and Saxophonist who presents a Hybrid Performance concept. He not only plays electronic music but also performs live saxophone, creating an exclusive, emotional, and unforgettable musical experience.',
+                'D.japar adalah seorang Professional DJ sekaligus pemain Saxophone yang menghadirkan konsep Hybrid Performance. Ia tidak hanya memainkan musik elektronik, tetapi juga memainkan saxophone secara live sehingga menciptakan pengalaman musikal yang eksklusif, emosional dan tidak terlupakan.'
               )}
             </motion.p>
 
